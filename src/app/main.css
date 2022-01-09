@@ -162,14 +162,17 @@ img {
 }
 
 .contentMenu li {
-	text-align: center;
 	opacity: 0.6;
 	margin: 0 26px;
 	cursor: pointer;
 	font-weight: 700;
+	text-align: center;
 	height: fit-content;
 	transition: opacity 0.3s ease-in-out;
 }
+
+.contentMenu li:last-child {margin-right: 0px}
+.contentMenu li:first-child {margin-left: 0px}
 
 .contentMenu li:hover {opacity: 0.7}
 
