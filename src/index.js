@@ -13,6 +13,7 @@ const requests = require("./extras/requests");
 // Starts the actual BrowserWindow, which is only run when using the
 // GUI, for the CLI this function is never called.
 function start() {
+	console.log("LAUNCHING")
 	win = new BrowserWindow({
 		width: 1000,
 		height: 600,
@@ -28,6 +29,8 @@ function start() {
 		titleBarStyle: "hidden",
 		frame: false,
 		icon: path.join(__dirname, "assets/icons/512x512.png"),
+		movable: true,
+		transparent: true,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
@@ -35,11 +38,19 @@ function start() {
 	}); 
 
 	// When --debug is added it'll open the dev tools
-	if (cli.hasParam("debug")) {win.openDevTools()}
+	//if (cli.hasParam("debug")) { win.openDevTools()}
+
+	win.openDevTools()
 
 	// General setup
 	win.removeMenu();
-	win.loadFile(__dirname + "/app/index.html");
+	win.loadFile(__dirname + "./app/index.html");
+
+	win.once('ready-to-show', () => {
+		win.show()
+	})
+	console.log("NAVIGATED")
+	console.log(win)
 
 	ipcMain.on("exit", () => {process.exit(0)})
 	ipcMain.on("minimize", () => {win.minimize()})
@@ -53,7 +64,8 @@ function start() {
 	ipcMain.on("guigetmods", (event, ...args) => {win.webContents.send("mods", utils.mods.list())});
 
 	win.webContents.on("dom-ready", () => {
-		win.webContents.send("mods", utils.mods.list());
+		console.log("DOM READY")
+		//win.webContents.send("mods", utils.mods.list());
 	});
 
 	if (utils.settings.autoupdate) {utils.updatevp(false)}

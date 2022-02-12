@@ -1,65 +1,77 @@
 {
-	"name": "viper",
-	"productName": "Viper",
-	"version": "1.2.1",
-	"description": "Launcher+Updater for TF|2 Northstar",
-	"main": "src/index.js",
-	"build": {
-		"appId": "com.0negal.viper",
-		"directories": {
-			"buildResources": "src/assets/icons"
-		},
-		"nsis": {
-			"installerIcon": "icon.ico",
-			"uninstallerIcon": "icon.ico",
-			"installerHeaderIcon": "icon.ico"
-		},
-		"linux": {
-			"icon": "512x512.png",
-			"category": "Game",
-			"target": [
-				"AppImage",
-				"tar.gz",
-				"deb",
-				"rpm"
-			]
-		}
-	},
-	"scripts": {
-		"langs": "node build/langs.js",
-		"start": "npx electron src/index.js",
-		"debug": "npx electron src/index.js --debug",
-		"man": "npx marked-man docs/viper.1.md > docs/viper.1",
-		"build": "npx electron-builder --win nsis --win portable --linux",
-		"build:windows": "npx electron-builder --win nsis --win portable",
-		"build:linux": "npx electron-builder --linux",
-		"publish": "npx electron-builder --win nsis --win portable --linux -p always",
-		"publish:windows": "npx electron-builder --win nsis --win portable -p always",
-		"publish:linux": "npx electron-builder --linux -p always"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/0neGal/viper"
-	},
-	"author": "0neGal <mail@0negal.com>",
-	"license": "GPL-3.0-or-later",
-	"bugs": {
-		"url": "https://github.com/0neGal/viper/issues"
-	},
-	"homepage": "https://github.com/0neGal/viper#readme",
-	"dependencies": {
-		"electron-updater": "^4.6.1",
-		"follow-redirects": "^1.14.7",
-		"fs-extra": "^10.0.0",
-		"fuse.js": "^6.5.3",
-		"marked": "^4.0.10",
-		"marked-man": "^0.7.0",
-		"recursive-copy": "^2.0.13",
-		"simple-vdf": "^1.1.1",
-		"unzipper": "^0.10.11"
-	},
-	"devDependencies": {
-		"electron": "^16.0.5",
-		"electron-builder": "^22.14.5"
-	}
+  "name": "viper",
+  "productName": "Viper",
+  "version": "1.2.1",
+  "description": "Launcher+Updater for TF|2 Northstar",
+  "main": "src/index.js",
+  "build": {
+    "appId": "com.0negal.viper",
+    "directories": {
+      "buildResources": "src/assets/icons"
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico"
+    },
+    "linux": {
+      "icon": "512x512.png",
+      "category": "Game",
+      "target": [
+        "AppImage",
+        "tar.gz",
+        "deb",
+        "rpm"
+      ]
+    }
+  },
+  "scripts": {
+    "langs": "node build/langs.js",
+    "start": "npx electron src/index.js",
+    "debug": "npx electron src/index.js --debug",
+    "man": "npx marked-man docs/viper.1.md > docs/viper.1",
+    "build": "npx electron-builder --win nsis --win portable --linux",
+    "build:windows": "npx electron-builder --win nsis --win portable",
+    "build:linux": "npx electron-builder --linux",
+    "publish": "npx electron-builder --win nsis --win portable --linux -p always",
+    "publish:windows": "npx electron-builder --win nsis --win portable -p always",
+    "publish:linux": "npx electron-builder --linux -p always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0neGal/viper"
+  },
+  "author": "0neGal <mail@0negal.com>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/0neGal/viper/issues"
+  },
+  "homepage": "https://github.com/0neGal/viper#readme",
+  "dependencies": {
+    "electron-updater": "^4.6.1",
+    "follow-redirects": "^1.14.7",
+    "fs-extra": "^10.0.0",
+    "fuse.js": "^6.5.3",
+    "marked": "^4.0.10",
+    "marked-man": "^0.7.0",
+    "recursive-copy": "^2.0.13",
+    "simple-vdf": "^1.1.1",
+    "unzipper": "^0.10.11"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "autoprefixer": "^10.4.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "electron": "^16.0.5",
+    "electron-builder": "^22.14.5",
+    "postcss": "^8.4.6",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "tailwindcss": "^3.0.22"
+  }
 }
